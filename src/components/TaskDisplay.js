@@ -1,8 +1,12 @@
 
 const TaskDisplay = (props) => {
+
     return (
-        <li className='task'>{props.task}</li>
-    )
-}
+        <>
+        <h5 className='task' >{props.task}</h5>
+        <hr/>
+        </>
+    );
+};
 
 export default TaskDisplay; // exports TaskDisplay component as the default

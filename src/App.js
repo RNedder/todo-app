@@ -1,14 +1,14 @@
 import TaskList from './components/TaskList';
+import TaskForm from './components/TaskForm';
+import Header from './components/Header';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <h1>todo-app</h1>
-      {/* list below for css testing purposes */}
-      <ul>
+        <Header />
+        <TaskForm />
         <TaskList />
-      </ul>
     </div>
   );
 }
