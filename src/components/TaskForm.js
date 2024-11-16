@@ -1,19 +1,57 @@
-import React, { useState } from 'react';
+import { Col, Button, FormGroup, Label } from 'reactstrap';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { validateTaskForm } from '../utils/validateTaskForm';
 
 const TaskForm = () => {
+
+    const handleSubmit = (values, {resetForm }) => {
+        console.log('New Task:', values);
+        console.log('in JSON Format:', JSON.stringify(values));
+        resetForm(); // reset the form once it has been submitted
+        
+    }
+
     return (
-        <form className='todo-form m-4'>
-            <div className='input-group xs-6'>
-                <input 
-                    type='text' 
-                    className='task-input form-control' 
-                    placeholder='What is your next task?' />
-                <button 
-                    type='submit' 
-                    className='submit-btn btn btn-info' >Add</button>
-            </div>
-        </form>
-    );
+        <Formik 
+            initialValues={{
+                newTask: ''
+            }}
+            onSubmit={handleSubmit}
+            validate={validateTaskForm}
+        >
+            <Form>
+                {/* Task Input */}
+                <FormGroup>
+                    <Label htmlFor='newTask'>New Task:</Label>
+                    <Col sm={{ size: 6, offset: 3 }}>
+                        <Field 
+                            name='newTask'
+                            placeholder='What is your next task?'
+                            className='form-control'
+                        />
+                        <ErrorMessage name='newTask'>
+                            {(msg) => <p className='text-danger'>{msg}</p>}
+                        </ErrorMessage> 
+                    </Col>
+                </FormGroup>
+
+                {/* Submit Button */}
+                <FormGroup>
+                    <Col md={{ size: 2, offset: 5 }}>
+                        <Button type='submit' color='warning' >
+                            Add
+                        </Button>
+                    </Col>
+                </FormGroup>
+
+            </Form>
+
+        </Formik>
+
+
+    )
 };
+
+
 
 export default TaskForm;

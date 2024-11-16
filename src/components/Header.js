@@ -1,7 +1,7 @@
 const Header = () => {
     return (
         <h1>
-            <span className='badge bg-dark'>to do</span>
+            <span className='badge bg-dark'>todo</span>
             <small className='text-muted'>app</small>
         </h1>
     );
