@@ -1,12 +1,8 @@
-
-const TaskDisplay = (props) => {
-
+// Display format for each task in the list
+const TaskDisplay = ({ task, dispatch }) => {
     return (
-        <>
-        <h5 className='task' >{props.task}</h5>
-        <hr/>
-        </>
+        <li className='task-item'>{task.name}</li>
     );
 };
 
-export default TaskDisplay; // exports TaskDisplay component as the default
+export default TaskDisplay; // exports the TaskDisplay component as the default
