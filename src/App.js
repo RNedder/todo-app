@@ -1,5 +1,5 @@
 import { useReducer } from 'react';
-import { v4 as uuid } from 'uuid'; // uni
+import { v4 as uuid } from 'uuid'; 
 import Header from './components/Header';
 import AddTask from './components/AddTask';
 import TaskDisplay from './components/TaskDisplay';
@@ -8,7 +8,8 @@ import './App.css';
 // initialState object of the todo list - contains an empty array for task objects to be added to
 const initialState = { 
   tasks: [
-    { id: uuid(), name: 'do laundry'} // test object - REMOVE LATER
+    { id: uuid(), name: 'do laundry'}, // test object - REMOVE LATER
+    { id: uuid(), name: 'cook dinner'}
   ]
 };
 
@@ -49,19 +50,18 @@ function App() {
 
       {/* Task List */}
       <div className='list-container'>
-        {/* Iterates through the tasks from initialState and maps them into the view list */}
-        {tasks.map((task) => {
-          return (
-            <TaskDisplay
-              key={task.id}
-              task={task}
-              dispatch={dispatch}
-            />
-          );
-        })}
-
-
-
+        <ul className='list-group list-group-flush col-8 col-md-6 col-lg-4 offset-2 offset-md-3 offset-lg-4' >
+          {/* Iterates through the tasks from initialState and maps them into the view list */}
+          {tasks.map((task) => {
+            return (
+              <TaskDisplay
+                key={task.id}
+                task={task}
+                dispatch={dispatch}
+              />
+            );
+          })}
+        </ul> 
       </div>
     </div>
   );

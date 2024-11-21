@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Button } from 'reactstrap';
 
 const AddTask = ({ dispatch }) => {
 
@@ -19,11 +20,12 @@ const AddTask = ({ dispatch }) => {
 
     return (
 
-        <form onSubmit={handleSubmit}>
+        <form className='input-group d-flex justify-content-center' onSubmit={handleSubmit}> {/* onSubmit when 'submit' button is clicked */}
 
             {/* Task Input */}
-            <input type='text' value={inputValue} onChange={handleChange} placeholder='What is your next task?' />
-            <button type='submit' color='warning'>Add</button>
+            <input type='text' value={inputValue} alt='add a task' onChange={handleChange} placeholder='What is your next task?' />
+            {/* 'Add' button only appears when an inputValue is registered */}
+            {inputValue && <Button type='submit' color='outline-success'>Add</Button>} 
         </form>
 
     )
