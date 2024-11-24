@@ -4,6 +4,7 @@ import Header from './components/Header';
 import AddTask from './components/AddTask';
 import TaskDisplay from './components/TaskDisplay';
 import { TASKS } from './data/TASKS';
+import { ImCheckboxUnchecked } from 'react-icons/im';
 import './App.css';
 
 // initialState object of the todo list - contains an empty array imported from data/TASKS
