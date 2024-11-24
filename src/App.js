@@ -26,6 +26,14 @@ const listReducer = (state, action) => {
         ])
       };
 
+    case 'REMOVE_TASK':
+      return {
+        ...state,
+        tasks: state.tasks.filter( // filters the array for all tasks that do NOT match the removed item
+          (task) => task.id !== action.payload.id
+        )
+      }
+
     // TO DO: add 'REMOVE_TASK' case
     default:
       return state;
