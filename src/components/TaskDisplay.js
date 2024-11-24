@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { Button } from 'reactstrap';
 import { ImCheckboxUnchecked, ImCheckboxChecked } from 'react-icons/im';
 import { MdOutlineDeleteForever } from 'react-icons/md';
-import { RiDeleteBin2Fill } from "react-icons/ri";
+import { RiDeleteBin2Fill } from 'react-icons/ri';
+import { FaRegStar, FaStar } from 'react-icons/fa';
 
 
 // TODO - add 'checked' or 'completed' property to task objects and toggle checkbox through that instead of by the buttons
@@ -16,38 +17,64 @@ const TaskDisplay = ({ task, dispatch }) => {
     const toggleCheckbox = () => {
         if (checked === false) {
             setChecked(true);
-            console.log(checked);
         } else {
             setChecked(false); // sets false if already checked
-            console.log(checked);
         }
     };
 
-const checkbox = checked ? '<ImCheckboxChecked />' : '<ImCheckboxUnchecked />';
+    // useState for the stars
+    const [ starred, setStarred ] = useState(false);
+    // called when the star button is clicked and toggles if starred
+    const toggleStar = () => {
+        if (starred === false) {
+            setStarred(true);
+        } else {
+            setStarred(false);
+        }
+    }
 
     return (
-        <li className='position-relative input-group task-item list-group-item'>
+        <li className='task-item list-group-item'>
             
-            {/* Custom Checkbox Button using SVGs */}
-            {/* Toggles onClick between checkbox SVGs */}
-            <Button onClick={toggleCheckbox} 
-                type='button' 
-                color='white' 
-                className='list-button btn btn-outline-secondary position-absolute top-0 start-0' 
-                id={task.id}Checkbox> 
-            { checked ? <ImCheckboxChecked /> : <ImCheckboxUnchecked /> }
-            </Button>
+            <div className='btn-toolbar justify-content-between' role='toolbar'>
+                <div className='btn-group mr-2' role='group'>
+                    {/* Custom Checkbox Button using SVGs */}
+                    {/* Toggles onClick between checkbox SVGs */}
+                    <Button onClick={toggleCheckbox} 
+                        type='button' 
+                        color='outline-secondary' 
+                        className='' 
+                        id={task.id}Checkbox> 
+                    { checked ? <ImCheckboxChecked /> : <ImCheckboxUnchecked /> }
+                    </Button>
 
-            {/* Label for checkbox - AKA the task */}
-            <label class='task-label form-check-label' for={task.id}Checkbox >{task.name}</label>
-            
-            {/* Button for removal of tasks */}
-            {/* onClick dispatches object to the listReducer on App.js, passing in the task to be removed */}
-            <Button onClick={() => dispatch({ type: 'REMOVE_TASK', payload: task })}
-                type='button' 
-                color='white' 
-                className='list-button btn btn-outline-danger position-absolute top-0 end-0'>
-                <RiDeleteBin2Fill /></Button>
+                    {/* Custom Star Button using SVGs */}
+                    <Button onClick={toggleStar} 
+                        type='button' 
+                        color='outline-warning' 
+                        className='' 
+                        id={task.id}Checkbox> 
+                    { starred ? <FaStar /> : <FaRegStar /> }
+                    </Button>
+
+                </div>
+
+                <div className='input-group'>
+                {/* Label for checkbox - AKA the task */}
+                <label class='task-label mr-2 form-check-label' for={task.id}Checkbox >{task.name}</label>
+                </div>
+
+                <div className='btn-group' role='group'>
+                    {/* Button for removal of tasks */}
+                    {/* onClick dispatches object to the listReducer on App.js, passing in the task to be removed */}
+                    <Button onClick={() => dispatch({ type: 'REMOVE_TASK', payload: task })}
+                        type='button' 
+                        color='outline-danger' 
+                        className=''>
+                        <MdOutlineDeleteForever /></Button>
+                </div>
+
+            </div>
         </li>
     );
 };
