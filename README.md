@@ -7,11 +7,11 @@ A smooth and intuitive to-do list
   <li>✅add a task to the list </li>
   <li>✅remove a task from the list </li>
   <li>✅checkbox to mark items complete </li>
+  <li>✅star to mark important tasks</li>
 </ul>
   
-## pending features 
+## pending features
 <ul>
-  <li>star to mark important tasks</li>
   <li>ability to drag and drop tasks </li>
   <li>clear completed tasks </li>
   <li>app themes (dark/light) </li>
