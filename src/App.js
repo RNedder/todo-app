@@ -3,14 +3,12 @@ import { v4 as uuid } from 'uuid';
 import Header from './components/Header';
 import AddTask from './components/AddTask';
 import TaskDisplay from './components/TaskDisplay';
+import { TASKS } from './data/TASKS';
 import './App.css';
 
-// initialState object of the todo list - contains an empty array for task objects to be added to
+// initialState object of the todo list - contains an empty array imported from data/TASKS
 const initialState = { 
-  tasks: [
-    { id: uuid(), name: 'do laundry'}, // test object - REMOVE LATER
-    { id: uuid(), name: 'cook dinner'}
-  ]
+  tasks: TASKS
 };
 
 // listReducer manages changes to the list 
