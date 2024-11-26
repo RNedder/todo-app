@@ -5,9 +5,18 @@
 }
 
 .task-label {
-  padding-left: 0px;
+  padding-left: 20px;
 }
 
 .task-form {
   max-width: 300px;
 }
+
+
+/* Sets a fixed size for the checkbox, star, and delete buttons */
+/* Prevents buttons stretching based on text wrapping */
+.delete-button, .star-button, .check-button {
+  height: 2.5rem;
+  width: 2.5rem;
+}
+

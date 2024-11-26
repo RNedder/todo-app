@@ -4,9 +4,8 @@ export const validateTaskForm = (values) => {
     // Task Validation
     if (!values.newTask) {
         errors.newTask = 'Enter a task';
-    } 
-    else if (values.newTask.length > 35) {
-        errors.newTask = 'Must be 35 characters or less';
+    } else if (values.newTask.length > 100) {
+        errors.newTask = 'Must be 100 characters or less';
     }
     // TODO - check if task already exists
 

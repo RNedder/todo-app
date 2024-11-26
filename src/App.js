@@ -1,10 +1,12 @@
 import { useReducer } from 'react';
+import { Container } from 'reactstrap';
 import Header from './components/Header';
 import AddTask from './components/AddTask';
 import TaskDisplay from './components/TaskDisplay';
 import { TASKS } from './data/TASKS';
 import { listReducer } from './data/tasksSlice';
 import './App.css';
+
 
 // initialState object of the todo list - contains an empty array imported from data/TASKS
 const initialState = { 

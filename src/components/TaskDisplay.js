@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button } from 'reactstrap';
+import { Button, Container, Row, Col } from 'reactstrap';
 import { ImCheckboxUnchecked, ImCheckboxChecked } from 'react-icons/im';
 import { MdOutlineDeleteForever } from 'react-icons/md';
 import { FaRegStar, FaStar } from 'react-icons/fa';
@@ -32,14 +32,15 @@ const TaskDisplay = ({ task, dispatch }) => {
     return (
         <li className='task-item list-group-item'>
             
-            <div className='btn-toolbar justify-content-between' role='toolbar'>
-                <div className='btn-group mr-2' role='group'>
+            <Container>
+            <Row className='btn-toolbar justify-content-between' role='toolbar'>
+                <Col xs='2' className='btn-group align-items-center' role='group'>
                     {/* Custom Checkbox Button using SVGs */}
                     {/* Toggles onClick between checkbox SVGs */}
                     <Button onClick={toggleCheckbox} 
                         type='button' 
                         color='outline-secondary' 
-                        className='' 
+                        className='check-button' 
                         id={task.id}Checkbox> 
                     { checked ? <ImCheckboxChecked /> : <ImCheckboxUnchecked /> }
                     </Button>
@@ -48,29 +49,30 @@ const TaskDisplay = ({ task, dispatch }) => {
                     <Button onClick={toggleStar} 
                         type='button' 
                         color='outline-warning' 
-                        className='' 
-                        id={task.id}Checkbox> 
+                        className='star-button' 
+                        id={task.id}Star> 
                     { starred ? <FaStar /> : <FaRegStar /> }
                     </Button>
 
-                </div>
+                </Col>
 
-                <div className='input-group'>
+                <Col className='input-group'>
                 {/* Label for checkbox - AKA the task */}
-                <label class='task-label mr-2 form-check-label' for={task.id}Checkbox >{task.name}</label>
-                </div>
+                <label class='task-label form-check-label' for={task.id}Checkbox >{task.name}</label>
+                </Col>
 
-                <div className='btn-group' role='group'>
+                <Col xs='2' sm='1' className='btn-group align-items-center' role='group'>
                     {/* Button for removal of tasks */}
                     {/* onClick dispatches object to the listReducer on App.js, passing in the task to be removed */}
                     <Button onClick={() => dispatch({ type: 'REMOVE_TASK', payload: task })}
                         type='button' 
                         color='outline-danger' 
-                        className=''>
+                        className='delete-button'>
                         <MdOutlineDeleteForever /></Button>
-                </div>
+                </Col>
 
-            </div>
+            </Row>
+            </Container>
         </li>
     );
 };
