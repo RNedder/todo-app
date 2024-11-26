@@ -50,7 +50,7 @@ const TaskDisplay = ({ task, dispatch }) => {
                         type='button' 
                         color='outline-warning' 
                         className='star-button' 
-                        id={task.id}Star> 
+                        id={task.id}Checkbox> 
                     { starred ? <FaStar /> : <FaRegStar /> }
                     </Button>
 

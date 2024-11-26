@@ -1,5 +1,4 @@
 import { useReducer } from 'react';
-import { Container } from 'reactstrap';
 import Header from './components/Header';
 import AddTask from './components/AddTask';
 import TaskDisplay from './components/TaskDisplay';
