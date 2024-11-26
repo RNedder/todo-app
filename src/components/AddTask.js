@@ -1,4 +1,4 @@
-import { Button } from 'reactstrap';
+import { Button, FormGroup } from 'reactstrap';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { validateTaskForm } from '../utils/validateTaskForm';
 
@@ -27,14 +27,18 @@ const AddTask = ({ dispatch }) => {
                 newTask: ''
             }}
             onSubmit={handleSubmit}
-            validate={validateTaskForm}>
+            validate={validateTaskForm}
+            >
                 <Form>
+                    <FormGroup className='btn-group'>
                     <Field id='newTask' name='newTask' placeholder='What is your next task?' className='task-form form-control mx-auto'/>
                     <Button type='submit' color='outline-success'>Add</Button>
+                    </FormGroup>
                     <ErrorMessage name='newTask'>
-                        {(msg) => <p className='text-danger'>{msg}</p>}
+                    {(msg) => <p className='text-danger'>{msg}</p>}
                     </ErrorMessage>
                 </Form>
+
         </Formik>
 
 
