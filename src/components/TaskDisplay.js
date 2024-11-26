@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Button } from 'reactstrap';
 import { ImCheckboxUnchecked, ImCheckboxChecked } from 'react-icons/im';
 import { MdOutlineDeleteForever } from 'react-icons/md';
-import { RiDeleteBin2Fill } from 'react-icons/ri';
 import { FaRegStar, FaStar } from 'react-icons/fa';
 
 
@@ -14,12 +13,9 @@ const TaskDisplay = ({ task, dispatch }) => {
     // useState for the checkboxes
     const [ checked, setChecked ] = useState(false);
     // called when the checkbox button is clicked and toggles if checked depending on current state
-    const toggleCheckbox = () => {
-        if (checked === false) {
-            setChecked(true);
-        } else {
-            setChecked(false); // sets false if already checked
-        }
+    const toggleCheckbox = () => { 
+        checked ? setChecked(false) : setChecked(true);
+        // dispatch({ type: 'TOGGLE_COMPLETE', payload: task }); // dispatches task to toggle the 'complete' property
     };
 
     // useState for the stars

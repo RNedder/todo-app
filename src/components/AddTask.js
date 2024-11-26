@@ -1,15 +1,13 @@
-import { useState } from 'react';
 import { Button } from 'reactstrap';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { validateTaskForm } from '../utils/validateTaskForm';
 
 const AddTask = ({ dispatch }) => {
 
-    // OBSOLETE
-    // const [inputValue, updateInput] = useState(''); // tracks the state for the new task to be added
+    /* OBSOLETE WITH FORMIK
+    const [inputValue, updateInput] = useState(''); // tracks the state for the new task to be added
 
-    // OBSOLETE with Formik 
-/*     // tracks user input as it is entered or changed
+    // tracks user input as it is entered or changed
     const handleChange = (event) => {
         // event is onChange - target is the text input box - value is user input
         updateInput(event.target.value); 
@@ -23,7 +21,7 @@ const AddTask = ({ dispatch }) => {
     };
 
     return (
-
+        
         <Formik 
             initialValues={{
                 newTask: ''
@@ -31,13 +29,15 @@ const AddTask = ({ dispatch }) => {
             onSubmit={handleSubmit}
             validate={validateTaskForm}>
                 <Form>
-                    <Field id='newTask' name='newTask' placeholder='What is your next task?' className='form-control'/>
+                    <Field id='newTask' name='newTask' placeholder='What is your next task?' className='task-form form-control mx-auto'/>
+                    <Button type='submit' color='outline-success'>Add</Button>
                     <ErrorMessage name='newTask'>
                         {(msg) => <p className='text-danger'>{msg}</p>}
                     </ErrorMessage>
-                    <Button type='submit' color='outline-success'>Add</Button>
                 </Form>
         </Formik>
+
+
     )
 };
 

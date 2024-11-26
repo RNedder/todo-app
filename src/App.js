@@ -22,6 +22,7 @@ function App() {
       <div className='header-container'>
         <Header />
         <AddTask dispatch={dispatch} />
+        {/* Test Button for removing completed items <button onClick={() => dispatch({ type: 'REMOVE_COMPLETED' })}>Remove Completed</button> */} 
       </div>
 
       {/* Task List */}
@@ -33,6 +34,7 @@ function App() {
               <TaskDisplay
                 key={task.id}
                 task={task}
+                completed={task.completed}
                 dispatch={dispatch}
               />
             );
