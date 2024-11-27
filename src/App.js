@@ -16,6 +16,13 @@ function App() {
   const [state, dispatch] = useReducer(listReducer, initialState);
   const { tasks } = state;
 
+/*   localStorage.setItem('myCat', 'Tom');
+  console.log(localStorage);
+  const cat = localStorage.getItem('myCat');
+  console.log(cat); */
+
+  console.log(tasks);
+
   return (
     <div className="App">
 

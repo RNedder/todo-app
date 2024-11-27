@@ -13,9 +13,9 @@ const TaskDisplay = ({ task, dispatch }) => {
     // useState for the checkboxes
     const [ checked, setChecked ] = useState(false);
     // called when the checkbox button is clicked and toggles if checked depending on current state
-    const toggleCheckbox = () => { 
-        checked ? setChecked(false) : setChecked(true);
-        // dispatch({ type: 'TOGGLE_COMPLETE', payload: task }); // dispatches task to toggle the 'complete' property
+    const toggleCheckbox = (id, checked) => { 
+        // checked ? setChecked(false) : setChecked(true);
+         // dispatches task to toggle the 'complete' property
     };
 
     // useState for the stars
@@ -37,13 +37,14 @@ const TaskDisplay = ({ task, dispatch }) => {
                 <Col xs='2' className='btn-group align-items-center' role='group'>
                     {/* Custom Checkbox Button using SVGs */}
                     {/* Toggles onClick between checkbox SVGs */}
-                    <Button onClick={toggleCheckbox} 
+                    <input type='checkbox' onChange={() => dispatch({ type: 'TOGGLE_COMPLETE', payload: task.id })}></input>
+{/*                     <Button onClick={toggleCheckbox} 
                         type='button' 
                         color='outline-secondary' 
                         className='check-button' 
                         id={task.id}Checkbox> 
                     { checked ? <ImCheckboxChecked /> : <ImCheckboxUnchecked /> }
-                    </Button>
+                    </Button> */}
 
                     {/* Custom Star Button using SVGs */}
                     <Button onClick={toggleStar} 

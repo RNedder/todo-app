@@ -9,7 +9,7 @@ export const listReducer = (state, action) => {
         return {
           ...state, // spreads the current state
           tasks: state.tasks.concat([
-            { id: uuid(), name: action.payload, completed: true } // add unique identifier for id so the order can change later
+            { id: uuid(), name: action.payload, completed: false } // add unique identifier for id so the order can change later
           ])
         };
   
@@ -17,12 +17,16 @@ export const listReducer = (state, action) => {
         return {
           ...state,
           tasks: state.tasks.filter( // filters the array for all tasks that do NOT match the removed item
-            (task) => task.id !== action.payload.id
+            (task) => task.id !== action.payload
           )
         }
 
       case 'TOGGLE_COMPLETE': 
         return {
+          ...state,
+          tasks: state.tasks.map((task) => task.id === action.payload ? {...task, completed: !task.completed} : task)
+
+          // tasks: state.tasks.map((t, i) => t.id == action.payload.id ? t.completed = true : t)
         // Logic to toggle the completed property between 'true' and 'false'
       }
 
