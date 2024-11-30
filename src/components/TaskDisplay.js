@@ -7,13 +7,7 @@ import { FaRegStar, FaStar } from 'react-icons/fa';
 // Display format for each task in the list
 const TaskDisplay = ({ task, dispatch }) => {
 
-    // useState for the checkboxes
-    const [ checked, setChecked ] = useState(false);
-    // called when the checkbox button is clicked and toggles if checked depending on current state
-    const toggleCheckbox = (id, checked) => { 
-        // checked ? setChecked(false) : setChecked(true);
-         // dispatches task to toggle the 'complete' property
-    };
+
 
     // useState for the stars
     const [ starred, setStarred ] = useState(false);
@@ -34,14 +28,15 @@ const TaskDisplay = ({ task, dispatch }) => {
                 <Col xs='2' className='btn-group align-items-center' role='group'>
                     {/* Custom Checkbox Button using SVGs */}
                     {/* Toggles onClick between checkbox SVGs */}
-                    <input type='checkbox' onChange={() => dispatch({ type: 'TOGGLE_COMPLETE', payload: task.id })}></input>
-{/*                     <Button onClick={toggleCheckbox} 
+                    {/* <input type='checkbox' onChange={() => dispatch({ type: 'TOGGLE_COMPLETE', payload: task.id })}></input> */}
+                    <Button  
+                        onClick={() => dispatch({ type: 'TOGGLE_COMPLETE', payload: task.id })}
                         type='button' 
                         color='outline-secondary' 
                         className='check-button' 
                         id={task.id}Checkbox> 
-                    { checked ? <ImCheckboxChecked /> : <ImCheckboxUnchecked /> }
-                    </Button> */}
+                    { task.completed ? <ImCheckboxChecked /> : <ImCheckboxUnchecked /> }
+                    </Button>
 
                     {/* Custom Star Button using SVGs */}
                     <Button onClick={toggleStar} 
