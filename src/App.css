@@ -1,11 +1,11 @@
 
-.header-container {
+.header-container, .options-container {
   margin-bottom: 20px;
   text-align: center
 }
 
 .task-label {
-  padding-left: 20px;
+  padding-left: 30px
 }
 
 .task-form {
@@ -18,5 +18,8 @@
 .delete-button, .star-button, .check-button {
   height: 2.5rem;
   width: 2.5rem;
+  padding: 0px;
+  margin-left: 2px;
+  margin-right: 2px
 }
 

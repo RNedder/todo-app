@@ -1,8 +1,9 @@
-import { useReducer, useEffect, useState } from 'react';
+import { useReducer, useEffect } from 'react';
 import Header from './components/Header';
 import AddTask from './components/AddTask';
 import TaskDisplay from './components/TaskDisplay';
-import { listReducer, initialState, storedTasks, localValue } from './data/tasksSlice';
+import { listReducer } from './data/tasksSlice';
+import ClearTasks from './components/ClearTasks';
 import './App.css';
 
 function App() {
@@ -29,7 +30,11 @@ function App() {
       <div className='header-container'>
         <Header />
         <AddTask dispatch={dispatch} />
-        {/* Test Button for removing completed items <button onClick={() => dispatch({ type: 'REMOVE_COMPLETED' })}>Remove Completed</button> */} 
+        {tasks.length === 0 ? <h4 className='text-success'>All tasks completed!</h4> : <ClearTasks dispatch={dispatch} />}
+      </div>
+
+      <div className='options-container '>
+      
       </div>
 
       {/* Task List */}

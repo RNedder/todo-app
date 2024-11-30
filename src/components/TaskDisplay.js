@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Button, Container, Row, Col } from 'reactstrap';
 import { ImCheckboxUnchecked, ImCheckboxChecked } from 'react-icons/im';
 import { MdOutlineDeleteForever } from 'react-icons/md';
@@ -13,9 +12,8 @@ const TaskDisplay = ({ task, dispatch }) => {
             <Container>
             <Row className='btn-toolbar justify-content-between' role='toolbar'>
                 <Col xs='2' className='btn-group align-items-center' role='group'>
+
                     {/* Custom Checkbox Button using SVGs */}
-                    {/* Toggles onClick between checkbox SVGs */}
-                    {/* <input type='checkbox' onChange={() => dispatch({ type: 'TOGGLE_COMPLETE', payload: task.id })}></input> */}
                     <Button  
                         onClick={() => dispatch({ type: 'TOGGLE_COMPLETE', payload: task.id })}
                         type='button' 
@@ -38,7 +36,7 @@ const TaskDisplay = ({ task, dispatch }) => {
 
                 <Col className='input-group'>
                 {/* Label for checkbox - AKA the task */}
-                <label class='task-label form-check-label' for={task.id}Checkbox >{task.name}</label>
+                <label className='task-label form-check-label' for={task.id}Checkbox >{task.name}</label>
                 </Col>
 
                 <Col xs='2' sm='1' className='btn-group align-items-center' role='group'>

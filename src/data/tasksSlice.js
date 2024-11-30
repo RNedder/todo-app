@@ -49,8 +49,13 @@ export const listReducer = (state, action) => {
           )
         }
 
-/*       case 'REMOVE_ALL_TASKS': // clear all tasks
-        return [] */
+      case 'REMOVE_ALL_TASKS': // returns only tasks without a name property - which will be no tasks
+        return {
+          ...state,
+          tasks: state.tasks.filter(
+            (task) => !task.name
+          )
+        }
 
       default:
         return state;
