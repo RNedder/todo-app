@@ -5,11 +5,6 @@ import TaskDisplay from './components/TaskDisplay';
 import { listReducer, initialState, storedTasks, localValue } from './data/tasksSlice';
 import './App.css';
 
-// initialState object of the todo list - contains an empty array that is parsed from localStorage
-
-
-
-
 function App() {
 
   const storedTasks = localStorage.getItem('tasks'); // retrieves tasks from localStorage and sets to a variable 'storedTasks'

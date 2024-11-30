@@ -7,19 +7,6 @@ import { FaRegStar, FaStar } from 'react-icons/fa';
 // Display format for each task in the list
 const TaskDisplay = ({ task, dispatch }) => {
 
-
-
-    // useState for the stars
-    const [ starred, setStarred ] = useState(false);
-    // called when the star button is clicked and toggles if starred
-    const toggleStar = () => {
-        if (starred === false) {
-            setStarred(true);
-        } else {
-            setStarred(false);
-        }
-    }
-
     return (
         <li className='task-item list-group-item'>
             
@@ -39,12 +26,12 @@ const TaskDisplay = ({ task, dispatch }) => {
                     </Button>
 
                     {/* Custom Star Button using SVGs */}
-                    <Button onClick={toggleStar} 
+                    <Button onClick={() => dispatch({ type: 'TOGGLE_STARRED', payload: task.id })} 
                         type='button' 
                         color='outline-warning' 
                         className='star-button' 
                         id={task.id}Star> 
-                    { starred ? <FaStar /> : <FaRegStar /> }
+                    { task.starred ? <FaStar /> : <FaRegStar /> }
                     </Button>
 
                 </Col>
