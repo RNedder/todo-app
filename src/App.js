@@ -1,25 +1,29 @@
-import { useReducer } from 'react';
+import { useReducer, useEffect, useState } from 'react';
 import Header from './components/Header';
 import AddTask from './components/AddTask';
 import TaskDisplay from './components/TaskDisplay';
-import { TASKS } from './data/TASKS';
-import { listReducer } from './data/tasksSlice';
+import { listReducer, initialState, storedTasks, localValue } from './data/tasksSlice';
 import './App.css';
 
+// initialState object of the todo list - contains an empty array that is parsed from localStorage
 
-// initialState object of the todo list - contains an empty array imported from data/TASKS
-const initialState = { 
-  tasks: TASKS
-};
+
+
 
 function App() {
-  const [state, dispatch] = useReducer(listReducer, initialState);
-  const { tasks } = state;
 
-/*   localStorage.setItem('myCat', 'Tom');
-  console.log(localStorage);
-  const cat = localStorage.getItem('myCat');
-  console.log(cat); */
+  const storedTasks = localStorage.getItem('tasks'); // retrieves tasks from localStorage and sets to a variable 'storedTasks'
+  
+  const initialState = { // sets the initialState to the storedTasks if exists or an empty array if not
+    tasks: storedTasks ? JSON.parse(storedTasks) : []
+  }
+
+  const [state, dispatch] = useReducer(listReducer, initialState); // useReducer allows us to manage the state of tasks with actions in the listReducer
+  const { tasks } = state; 
+
+  useEffect(() => { // runs everytime tasks is updated and saves it to localStorage
+    localStorage.setItem('tasks', JSON.stringify(tasks))
+  }, [tasks])
 
   console.log(tasks);
 

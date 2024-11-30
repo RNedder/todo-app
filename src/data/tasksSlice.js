@@ -1,6 +1,14 @@
 import { v4 as uuid } from 'uuid'; 
 // listReducer manages changes to the list 
 // Takes the current state and action and returning the new state
+
+// initialState object of the todo list - contains an empty array that is parsed from localStorage
+/* export const initialState = { 
+  tasks: []
+};
+ */
+
+
 export const listReducer = (state, action) => {
   
     // switch takes the action type and performs the corresponding update to the list
