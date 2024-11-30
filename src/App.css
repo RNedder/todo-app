@@ -16,10 +16,7 @@
 /* Sets a fixed size for the checkbox, star, and delete buttons */
 /* Prevents buttons stretching based on text wrapping */
 .delete-button, .star-button, .check-button {
-  height: 2.5rem;
-  width: 2.5rem;
-  padding: 0px;
-  margin-left: 2px;
-  margin-right: 2px
+  max-height: 40px;
+  max-width: 40px;
 }
 
