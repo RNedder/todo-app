@@ -36,10 +36,6 @@ function App() {
         {tasks.length === 0 ? <h4 className='text-success'>All tasks completed!</h4> : <ClearTasks dispatch={dispatch} />}
       </div>
 
-      <div className='options-container '>
-      
-      </div>
-
       {/* Task List */}
       <div className='list-container'>
         <ul className='list-group list-group-flush col-12 col-sm-8 col-md-6 col-lg-4 offset-sm-2 offset-md-3 offset-lg-4' >
