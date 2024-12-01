@@ -1,17 +1,21 @@
 
-.header-container, .options-container {
+.header-container, .list-container {
+  margin-top: 10px;
   margin-bottom: 20px;
   text-align: center
 }
 
 .task-label {
-  padding-left: 30px
+  padding-left: 30px;
 }
 
 .task-form {
   max-width: 300px;
 }
 
+ul {
+  max-width: 600px;
+}
 
 /* Sets a fixed size for the checkbox, star, and delete buttons */
 /* Prevents buttons stretching based on text wrapping */

@@ -38,7 +38,7 @@ function App() {
 
       {/* Task List */}
       <div className='list-container'>
-        <ul className='list-group list-group-flush col-12 col-sm-8 col-md-6 col-lg-4 offset-sm-2 offset-md-3 offset-lg-4' >
+        <ul className='list-group list-group-flush mx-auto' >
           {/* Iterates through the tasks from initialState and maps them into the view list */}
           {tasks.map((task) => {
             return (
