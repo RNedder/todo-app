@@ -8,13 +8,16 @@ import './App.css';
 
 function App() {
 
-  const storedTasks = localStorage.getItem('tasks'); // retrieves tasks from localStorage and sets to a variable 'storedTasks'
+  // retrieves tasks from localStorage and sets to a variable 'storedTasks'
+  const storedTasks = localStorage.getItem('tasks'); 
   
-  const initialState = { // sets the initialState to the storedTasks if exists or an empty array if not
+  // sets the initialState to the storedTasks if exists or an empty array if not
+  const initialState = { 
     tasks: storedTasks ? JSON.parse(storedTasks) : []
   }
 
-  const [state, dispatch] = useReducer(listReducer, initialState); // useReducer allows us to manage the state of tasks with actions in the listReducer
+  // useReducer allows us to manage the state of tasks with actions in the listReducer
+  const [state, dispatch] = useReducer(listReducer, initialState); 
   const { tasks } = state; 
 
   useEffect(() => { // runs everytime tasks is updated and saves it to localStorage
@@ -39,7 +42,7 @@ function App() {
 
       {/* Task List */}
       <div className='list-container'>
-        <ul className='list-group list-group-flush col-12 col-sm-10 col-md-8 col-lg-6 offset-sm-1 offset-md-2 offset-lg-3' >
+        <ul className='list-group list-group-flush col-12 col-sm-8 col-md-6 col-lg-4 offset-sm-2 offset-md-3 offset-lg-4' >
           {/* Iterates through the tasks from initialState and maps them into the view list */}
           {tasks.map((task) => {
             return (
