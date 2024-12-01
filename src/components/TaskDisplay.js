@@ -39,7 +39,7 @@ const TaskDisplay = ({ task, dispatch }) => {
                 <label className='task-label form-check-label' for={task.id}Checkbox >{task.name}</label>
                 </Col>
 
-                <Col xs='2' sm='1' className='btn-group align-items-center' role='group'>
+                <Col xs='2' className='btn-group align-items-center' role='group'>
                     {/* Button for removal of tasks */}
                     {/* onClick dispatches object to the listReducer on App.js, passing in the task to be removed */}
                     <Button onClick={() => dispatch({ type: 'REMOVE_TASK', payload: task.id })}

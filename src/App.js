@@ -33,7 +33,7 @@ function App() {
       <div className='header-container'>
         <Header />
         <AddTask dispatch={dispatch} />
-        {tasks.length === 0 ? <h4 className='text-success'>All tasks completed!</h4> : <ClearTasks dispatch={dispatch} />}
+        {tasks.length === 0 ? <p className='text-success'>All tasks completed!</p> : <ClearTasks dispatch={dispatch} />}
       </div>
 
       {/* Task List */}

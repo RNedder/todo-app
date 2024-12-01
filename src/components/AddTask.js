@@ -4,15 +4,6 @@ import { validateTaskForm } from '../utils/validateTaskForm';
 
 const AddTask = ({ dispatch }) => {
 
-    /* OBSOLETE WITH FORMIK
-    const [inputValue, updateInput] = useState(''); // tracks the state for the new task to be added
-
-    // tracks user input as it is entered or changed
-    const handleChange = (event) => {
-        // event is onChange - target is the text input box - value is user input
-        updateInput(event.target.value); 
-    }; */
-
     // dispatches to App.js upon submission of the new task
     const handleSubmit = (values, { resetForm }) => {
         const newTask = values.newTask;
