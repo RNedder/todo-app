@@ -10,8 +10,8 @@ const TaskDisplay = ({ task, dispatch }) => {
         <li className='task-item list-group-item'>
             
             <Container>
-            <Row className='btn-toolbar' role='toolbar'>
-                <Col xs='2' className='btn-group align-items-center d-flex justify-content-start' role='group'>
+            <Row>
+                <Col xs='3' className='btn-group align-items-center d-flex justify-content-start' >
 
                     {/* Custom Checkbox Button using SVGs */}
                     <Button  
