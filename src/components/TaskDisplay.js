@@ -10,8 +10,8 @@ const TaskDisplay = ({ task, dispatch }) => {
         <li className='task-item list-group-item'>
             
             <Container>
-            <Row className='btn-toolbar justify-content-between' role='toolbar'>
-                <Col xs='2' className='btn-group align-items-center' role='group'>
+            <Row className='btn-toolbar' role='toolbar'>
+                <Col xs='2' className='btn-group align-items-center d-flex justify-content-start' role='group'>
 
                     {/* Custom Checkbox Button using SVGs */}
                     <Button  
@@ -34,12 +34,12 @@ const TaskDisplay = ({ task, dispatch }) => {
 
                 </Col>
 
-                <Col className='input-group'>
+                <Col className='input-group align-items-center d-flex justify-content-between'>
                 {/* Label for checkbox - AKA the task */}
                 <label className='task-label form-check-label' for={task.id}Checkbox >{task.name}</label>
                 </Col>
 
-                <Col xs='2' className='btn-group align-items-center' role='group'>
+                <Col xs='2' className='btn-group align-items-center d-flex justify-content-end' role='group'>
                     {/* Button for removal of tasks */}
                     {/* onClick dispatches object to the listReducer on App.js, passing in the task to be removed */}
                     <Button onClick={() => dispatch({ type: 'REMOVE_TASK', payload: task.id })}
